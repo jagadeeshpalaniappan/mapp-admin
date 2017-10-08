@@ -1,0 +1,63 @@
+<!--
+<br/>
+<br/>
+<br/>
+<br/>
+
+<section id="myapp" ng-controller="MyNameIsController">
+  My Name is
+  <span data-ng-bind="FirstName"></span>
+  <span data-ng-bind="LastName"></span>
+
+  <input type="text" data-ng-model="FirstName">
+
+</section>
+
+<script type="text/javascript">
+
+  var MyNameIsApp = angular.module('MyNameIsApp', []);
+  MyNameIsApp.controller('MyNameIsController', function($scope) {
+    $scope.FirstName = 'Jagadeesh';
+    $scope.LastName = 'Palaniappan';
+  });
+  angular.bootstrap(document.getElementById('myapp'), ['MyNameIsApp']);
+
+</script>
+
+-->
+
+<style>
+  .navbar-micro-app{
+    margin-left: -15px;
+    margin-right: -15px;
+    border-radius: 0;
+  }
+</style>
+
+
+<div id="mapp1">
+
+  <header ng-include="'modules/core/client/views/header.client.view.html'" class="navbar navbar-default navbar-inverse navbar-micro-app"></header>
+
+  {{{block "content"}}}
+
+</div>
+
+<!--Embedding The User Object-->
+<script type="text/javascript">
+   //var user = {{{ user }}};
+  console.log("*********user (mapp1)*************");
+  console.log(user);
+ // var env = "{{ env }}";
+   console.log("*********user (env)*************");
+   console.log(env);
+</script>
+
+
+<!--Application JavaScript Files-->
+{{#each jsFiles}}
+<script type="text/javascript" src="{{this}}"></script>
+{{/each}}
+
+
+
